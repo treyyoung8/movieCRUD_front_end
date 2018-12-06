@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './Components/header';
+import Footer from './Components/footer';
+import IndexPage from './Components/indexPage';
 
 class App extends Component {
+  state = {
+    movies: []
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3002/movies')
+      .then(res => res.json())
+      .then(movies => this.setState({ movies }));
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <>
+        <Header />
+        <IndexPage movies={this.state.movies} />
+        <Footer />
+      </>
     );
   }
 }
