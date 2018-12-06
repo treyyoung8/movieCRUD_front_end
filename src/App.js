@@ -10,9 +10,13 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3002/movies')
+    fetch('https://treymoviecrudbackend.herokuapp.com/movies' || 'http://localhost:3002/movies')
       .then(res => res.json())
       .then(movies => this.setState({ movies }));
+  }
+
+  deleteMovie = async (movieId) => {
+
   }
 
   render() {
