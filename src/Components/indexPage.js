@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const IndexPage = (props) => {
     return (
@@ -25,7 +25,7 @@ const IndexPage = (props) => {
                                 <button>Edit</button>
                             </th>
                             <th>
-                                <button>Delete</button>
+                                <button onClick={() => props.delete(movie.id)}>Delete</button>
                             </th>
                         </tr>)}
                     </tbody>
@@ -34,4 +34,4 @@ const IndexPage = (props) => {
     )
 }
 
-export default IndexPage;
+export default IndexPage
