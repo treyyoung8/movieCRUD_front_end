@@ -1,10 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
     return (
-        <div>
-            <h2>See if your opinions are correct!</h2>
-            <h2 href=''></h2>
+        <div className='homepage'>
+            <h2>Welcome to the ULTIMATE MOVIE SITE!</h2>
+            <Link to='/index'>
+                <button>See Movies</button>
+            </Link>
         </div>
     )
 }

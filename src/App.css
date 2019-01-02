@@ -4,6 +4,45 @@ html {
   background-size: cover;
 }
 
-body {
-  background-color: rgb(128, 128, 128, 0.6);
+header {
+  text-align: center;
+  background-color: rgb(248, 93, 27, 0.6);
+}
+
+footer {
+  text-align: right;
+  background-color: rgb(248, 93, 27, 0.6);
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: rgb(248, 93, 27, 0.6);
+}
+
+.table {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(248, 93, 27, 0.6);
+}
+
+.poster {
+  height: 200px;
+  width: auto;
+}
+
+th {
+  padding: 10px;
+  border: 1px black solid;
+}
+
+.nav {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 2%;
+}
+
+button {
+  background-color: #E3B505;
 }

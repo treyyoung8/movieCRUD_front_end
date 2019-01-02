@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import './App.css'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './Components/header'
 import Footer from './Components/footer'
+import HomePage from './Components/homePage'
 import IndexPage from './Components/indexPage'
 
 class App extends Component {
@@ -12,7 +14,7 @@ class App extends Component {
   componentDidMount() {
     fetch('https://treymoviecrudbackend.herokuapp.com/movies' || 'http://localhost:3002/movies')
       .then(res => res.json())
-      .then(movies => this.setState({ movies }));
+      .then(movies => this.setState({ movies }))
   }
 
   deleteMovie = (id) => {
@@ -23,9 +25,16 @@ class App extends Component {
   render() {
     return (
       <>
-        <Header />
-        <IndexPage delete={this.deleteMovie} movies={this.state.movies} />
-        <Footer />
+        <Router>
+          <div>
+            <Header />
+              <Switch>
+                <Route exact path='/' render={HomePage} />
+                <Route exact path='/index' render={(props) => <IndexPage {...props} delete={this.deleteMovie} movies={this.state.movies} />} />
+              </Switch>
+            <Footer />
+          </div>
+        </Router>
       </>
     );
   }
