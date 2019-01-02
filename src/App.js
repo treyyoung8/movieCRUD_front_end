@@ -12,15 +12,19 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://treymoviecrudbackend.herokuapp.com/movies' || 'http://localhost:3002/movies')
+    this.fetchAllMovies()
+  }
+
+  fetchAllMovies() {
+    fetch('http://localhost:3002/movies')
       .then(res => res.json())
-      .then(movies => this.setState({ movies }))
+      .then(movies => this.setState({ movies: movies }))
   }
 
   deleteMovie = (id) => {
-    fetch('https://treymoviecrudbackend.herokuapp.com/movies/' || 'http://localhost:3002/movies' + id, {method: "DELETE"})
+    fetch('http://localhost:3002/movies/' + id, {method: "DELETE"})
+      .then(res => {this.fetchAllMovies()})
   }
-
 
   render() {
     return (
