@@ -6,7 +6,6 @@ import Footer from './Components/footer'
 import HomePage from './Components/homePage'
 import IndexPage from './Components/indexPage'
 import EditPage from './Components/editPage'
-// import MoviePage from './Components/moviePage'
 // import CreateMovie from './Components/createMovie'
 import MoviePage from './Components/moviePage';
 
@@ -31,19 +30,6 @@ class App extends Component {
       .then(res => {this.fetchAllMovies()})
   }
 
-  // getMovieById = ('/movies/:id', (req) => {
-  //   if (this.movies.id == req.params.id) {
-  //     fetch('http://localhost:3002/movies/' + req.params.id)
-  //       .then(res => res.json())
-  //   }
-  // })
-
-  // getMovieById = ({id}) => {
-  //   const oneMovie = this.state.movies.filter(movie => movie.id == id)
-  //     fetch('http://localhost:3002/movies/' + oneMovie.id)
-  //       .then(res => res.json())
-  //       .then(oneMovie => this.setState({ oneMovie: oneMovie }))
-  // }
     getMovieById = (id) => {
       fetch('http://localhost:3002/movies/' + id)
         .then(res => res.json())

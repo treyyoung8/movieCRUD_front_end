@@ -20,17 +20,34 @@ const EditPage = (props) => {
         // </div>
         <div className='edit'>
             <form className='editForm'>
-                <div class="form-group">
+                <div className='form-group'>
+                    <img src={props.oneMovie.poster_url} alt='Movie Poster' />
+                </div>
+                <div className="form-group">
                     <label>Title</label>
-                    <input type="text" class="form-control" placeholder={props.oneMovie.title} />
+                    <input type="text" className="form-control form-control-lg" placeholder={props.oneMovie.title} />
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                     <label>Director</label>
-                    <input type="text" class="form-control" placeholder={props.oneMovie.director} />
+                    <input type="text" className="form-control form-control-lg" placeholder={props.oneMovie.director} />
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                     <label>Year</label>
-                    <input type="text" class="form-control" placeholder={props.oneMovie.year} />
+                    <input type="text" className="form-control form-control-lg" placeholder={props.oneMovie.year} />
+                </div>
+                <div className="form-group">
+                    <label>Poster URL</label>
+                    <input type="text" className="form-control form-control-lg" placeholder={props.oneMovie.poster_url} />
+                </div>
+                <div className="form-group">
+                    <label>Select Rating</label>
+                    <select multiple className="form-control form-control-lg">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
                 </div>
             </form>
         </div>
