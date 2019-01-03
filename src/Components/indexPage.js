@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const IndexPage = (props) => {
     return (
@@ -25,7 +26,9 @@ const IndexPage = (props) => {
                                 <th>{movie.year}</th>
                                 <th>{movie.rating}</th>
                                 <th>
-                                    <button>Edit</button>
+                                    <Link to={`movies/${movie.id}`}>
+                                        <button onClick={() => props.getMovie(movie.id)}>More Info</button>
+                                    </Link>
                                 </th>
                                 <th>
                                     <button onClick={() => props.delete(movie.id)}>Delete</button>
@@ -33,6 +36,9 @@ const IndexPage = (props) => {
                             </tr>)}
                         </tbody>
                 </table>
+            </div>
+            <div>
+                <button>Create Movie</button>
             </div>
         </div>
     )

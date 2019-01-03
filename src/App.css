@@ -46,3 +46,35 @@ th {
 button {
   background-color: #E3B505;
 }
+
+.movieCard {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  align-content: center;
+  text-align: center;
+  margin-top: 2%;
+  padding: 2%;
+  width: 60rem;
+  background-color: rgb(248, 93, 27, 0.6);
+}
+
+.edit {
+  display: flex;
+  justify-content: center;
+}
+
+.editForm {
+  align-content: center;
+  text-align: center;
+  margin-top: 2%;
+  padding: 2%;
+  width: 60rem;
+  background-color: rgb(248, 93, 27, 0.6);
+}
+
+label {
+  padding: 5%
+}

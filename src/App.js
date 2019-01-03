@@ -5,12 +5,17 @@ import Header from './Components/header'
 import Footer from './Components/footer'
 import HomePage from './Components/homePage'
 import IndexPage from './Components/indexPage'
+import EditPage from './Components/editPage'
+// import MoviePage from './Components/moviePage'
+// import CreateMovie from './Components/createMovie'
+import MoviePage from './Components/moviePage';
 
 class App extends Component {
   state = {
-    movies: []
+    movies: [],
+    oneMovie: []
   }
-
+  
   componentDidMount() {
     this.fetchAllMovies()
   }
@@ -26,7 +31,27 @@ class App extends Component {
       .then(res => {this.fetchAllMovies()})
   }
 
+  // getMovieById = ('/movies/:id', (req) => {
+  //   if (this.movies.id == req.params.id) {
+  //     fetch('http://localhost:3002/movies/' + req.params.id)
+  //       .then(res => res.json())
+  //   }
+  // })
+
+  // getMovieById = ({id}) => {
+  //   const oneMovie = this.state.movies.filter(movie => movie.id == id)
+  //     fetch('http://localhost:3002/movies/' + oneMovie.id)
+  //       .then(res => res.json())
+  //       .then(oneMovie => this.setState({ oneMovie: oneMovie }))
+  // }
+    getMovieById = (id) => {
+      fetch('http://localhost:3002/movies/' + id)
+        .then(res => res.json())
+        .then(oneMovie => this.setState({ oneMovie: oneMovie }))
+    }
+
   render() {
+    console.log(this.state.oneMovie)
     return (
       <>
         <Router>
@@ -34,7 +59,10 @@ class App extends Component {
             <Header />
               <Switch>
                 <Route exact path='/' render={HomePage} />
-                <Route exact path='/index' render={(props) => <IndexPage {...props} delete={this.deleteMovie} movies={this.state.movies} />} />
+                <Route exact path='/movies' render={(props) => <IndexPage {...props} delete={this.deleteMovie} movies={this.state.movies} getMovie={this.getMovieById} />} />
+                <Route exact path='/movies/:id' render={(props) => <MoviePage {...props} getMovie={this.getMovieById} oneMovie={this.state.oneMovie} />} />
+                <Route exact path='/movies/:id/edit' render={(props) => <EditPage {...props} oneMovie={this.state.oneMovie} />} />
+                {/* <Route exact path='/movies/create' render={CreateMovie} /> */}
               </Switch>
             <Footer />
           </div>
