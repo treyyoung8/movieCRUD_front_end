@@ -1,7 +1,7 @@
 html {
-  background-image: url('https://www.meme-arsenal.com/memes/8b6e5f69506120cbe2169e36efd10bb8.jpg');
+  /* background-image: url('https://www.meme-arsenal.com/memes/8b6e5f69506120cbe2169e36efd10bb8.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 }
 
 header {
@@ -67,7 +67,10 @@ button {
 }
 
 .editForm {
-  align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
   text-align: center;
   margin-top: 2%;
   padding: 2%;
@@ -78,3 +81,15 @@ button {
 label {
   padding: 5%
 }
+
+/* .left {
+  display: flex;
+  justify-content: left;
+  margin-left: 10%
+}
+
+.right {
+  display: flex;
+  justify-content: right;
+  margin-right: 10%
+} */

@@ -38,7 +38,7 @@ const IndexPage = (props) => {
                 </table>
             </div>
             <div>
-                <button>Create Movie</button>
+                    <button><Link to='movies/createMovie'>Create Movie</Link></button>
             </div>
         </div>
     )
