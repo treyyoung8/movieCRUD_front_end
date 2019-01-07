@@ -20,18 +20,18 @@ class App extends Component {
   }
 
   fetchAllMovies() {
-    fetch('http://localhost:3002/movies')
+    fetch('https://treymoviecrudbackend.herokuapp.com/movies')
       .then(res => res.json())
       .then(movies => this.setState({ movies: movies }))
   }
 
   deleteMovie = (id) => {
-    fetch('http://localhost:3002/movies/' + id, {method: "DELETE"})
+    fetch('https://treymoviecrudbackend.herokuapp.com/movies/' + id, {method: "DELETE"})
       .then(res => {this.fetchAllMovies()})
   }
 
   getMovieById = (id) => {
-    fetch('http://localhost:3002/movies/' + id)
+    fetch('https://treymoviecrudbackend.herokuapp.com/movies/' + id)
       .then(res => res.json())
       .then(oneMovie => this.setState({ oneMovie: oneMovie }))
   }
@@ -52,7 +52,7 @@ class App extends Component {
           poster_url: this.state.poster_url
       }
 
-      fetch('http://localhost:3002/movies', {
+      fetch('https://treymoviecrudbackend.herokuapp.com/movies', {
           method: 'POST',
           body: JSON.stringify(movieInfo),
           headers: {

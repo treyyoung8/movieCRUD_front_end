@@ -25,7 +25,7 @@ class EditPage extends Component {
             poster_url: this.state.poster_url
         }
     
-        fetch(`http://localhost:3002/movies/${id}`, {
+        fetch(`https://treymoviecrudbackend.herokuapp.com/movies/${id}`, {
             method: 'PUT',
             body: JSON.stringify(movieInfo),
             headers: {
